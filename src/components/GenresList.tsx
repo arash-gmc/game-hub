@@ -12,11 +12,11 @@ import useGenres, { Genres } from "../hooks/useGenres";
 import imageCrop from "../services/imageCrop";
 
 interface Props {
-  onSelectGenre: (genre: Genres | null) => void;
-  selectedGenre: Genres | null;
+  onSelectGenre: (genreId: number | null) => void;
+  selectedGenreId: number | null;
 }
 
-const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenresList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, error, isLoading } = useGenres();
 
   if (error) return null;
@@ -36,7 +36,7 @@ const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
             fontSize="xl"
             variant="link"
             onClick={() => onSelectGenre(null)}
-            fontWeight={selectedGenre === null ? "bold" : "normal"}
+            fontWeight={selectedGenreId === null ? "bold" : "normal"}
           >
             All Genres
           </Button>
@@ -54,8 +54,8 @@ const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
                 variant="link"
                 whiteSpace="normal"
                 textAlign="left"
-                onClick={() => onSelectGenre(genre)}
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                onClick={() => onSelectGenre(genre.id)}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
               >
                 {genre.name}
               </Button>
