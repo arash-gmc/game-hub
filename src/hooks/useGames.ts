@@ -1,7 +1,7 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { GameQuery } from "../App";
 import ApiClient from "../services/api-client";
 import { FetchResponse } from "../services/api-client";
+import { GameQuery } from "../services/gamQueryStore";
 import timeMap from "../services/timeMap";
 import { Platform } from "./usePlatforms";
 
