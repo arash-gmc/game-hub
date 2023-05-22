@@ -32,8 +32,8 @@ const GenresList = () => {
             paddingBottom={3}
             fontSize="xl"
             variant="link"
-            onClick={() => setSelectedGenreId(null)}
-            fontWeight={selectedGenreId === null ? "bold" : "normal"}
+            onClick={() => setSelectedGenreId()}
+            fontWeight={!selectedGenreId ? "bold" : "normal"}
           >
             All Genres
           </Button>

@@ -10,7 +10,9 @@ const SearchBar = () => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (ref.current) setSearchText(ref.current.value);
+
+        if (ref.current?.value) setSearchText(ref.current.value);
+        if (ref.current?.value === "") setSearchText();
       }}
       style={{ width: "100%" }}
     >

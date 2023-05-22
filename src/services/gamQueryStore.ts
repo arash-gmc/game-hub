@@ -1,35 +1,29 @@
 import { create } from "zustand";
 
 export interface GameQuery {
-  genreId: number | null;
-  platformId: number | null;
-  sortBy: string | null;
-  search: string | null;
+  genreId?: number;
+  platformId?: number;
+  sortBy?: string;
+  search?: string;
 }
 
 interface GameQueryStore {
   gameQuery: GameQuery;
-  setGenre: (genreId: number | null) => void;
-  setPlatform: (platformId: number | null) => void;
-  setSort: (sortBy: string | null) => void;
-  setSearch: (search: string) => void;
+  setGenre: (genreId?: number) => void;
+  setPlatform: (platformId?: number) => void;
+  setSort: (sortBy: string) => void;
+  setSearch: (search?: string) => void;
 }
-const gameQueryInit = {
-  genreId: null,
-  platformId: null,
-  search: null,
-  sortBy: null,
-};
+
 const useGameQueryStore = create<GameQueryStore>((set) => ({
-  gameQuery: gameQueryInit,
+  gameQuery: {},
   setGenre: (genreId) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, genreId } })),
   setPlatform: (platformId) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, platformId } })),
   setSort: (sortBy) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, sortBy } })),
-  setSearch: (search) =>
-    set(() => ({ gameQuery: { ...gameQueryInit, search } })),
+  setSearch: (search) => set(() => ({ gameQuery: { search } })),
 }));
 
 export default useGameQueryStore;
