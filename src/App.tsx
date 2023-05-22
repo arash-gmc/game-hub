@@ -21,34 +21,25 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <Navbar onSearch={(input) => store.setSearch(input)} />
+        <Navbar />
       </GridItem>
       <Show above="md">
         <GridItem
           area="aside"
           paddingX={5}
         >
-          <GenresList
-            onSelectGenre={(genreId) => store.setGenre(genreId)}
-            selectedGenreId={store.gameQuery.genreId}
-          />
+          <GenresList />
         </GridItem>
       </Show>
       <GridItem area="main">
-        <GamesHeading gameQuery={store.gameQuery} />
+        <GamesHeading />
         <Flex marginLeft={10}>
           <Box marginRight={2}>
-            <PlatformSelector
-              onPlatformSelect={(platformId) => store.setPlatform(platformId)}
-              selectedPlatformId={store.gameQuery.platformId}
-            />
+            <PlatformSelector />
           </Box>
-          <SortMenue
-            onSortChange={(sortBy) => store.setSort(sortBy)}
-            sortedBy={store.gameQuery.sortBy}
-          />
+          <SortMenue />
         </Flex>
-        <GamesGrid gameQuery={store.gameQuery} />
+        <GamesGrid />
       </GridItem>
     </Grid>
   );
