@@ -3,6 +3,7 @@ import ApiClient from "../services/api-client";
 import { FetchResponse } from "../services/api-client";
 import { GameQuery } from "../services/gamQueryStore";
 import timeMap from "../services/timeMap";
+import { Genres } from "./useGenres";
 import { Platform } from "./usePlatforms";
 
 export interface Game {
@@ -12,8 +13,10 @@ export interface Game {
   background_image: string;
   description_raw: string;
   parent_platforms: { platform: Platform }[];
+  genres: Genres[];
   metacritic: number;
   rating_top: number;
+  publishers: { id: number; name: string }[];
 }
 
 const apiClient = new ApiClient<Game>("/games");
