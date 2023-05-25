@@ -8,6 +8,7 @@ import { Platform } from "./usePlatforms";
 export interface Game {
   id: number;
   name: string;
+  slug: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
@@ -16,7 +17,7 @@ export interface Game {
 
 const apiClient = new ApiClient<Game>("/games");
 
-const useGame = (gameQuery: GameQuery) =>
+const useGames = (gameQuery: GameQuery) =>
   useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
     queryFn: ({ pageParam = 1 }) =>
@@ -35,4 +36,4 @@ const useGame = (gameQuery: GameQuery) =>
     },
     staleTime: timeMap["day"],
   });
-export default useGame;
+export default useGames;
