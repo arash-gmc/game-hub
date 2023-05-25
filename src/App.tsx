@@ -1,4 +1,5 @@
 import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Outlet } from "react-router-dom";
 import GamesGrid from "./components/GamesGrid";
 import GamesHeading from "./components/GamesHeading";
 import GenresList from "./components/GenresList";
@@ -8,7 +9,6 @@ import SortMenue from "./components/SortMenue";
 import useGameQueryStore from "./services/gamQueryStore";
 
 function App() {
-  const store = useGameQueryStore();
   return (
     <Grid
       templateAreas={{
@@ -23,24 +23,7 @@ function App() {
       <GridItem area="nav">
         <Navbar />
       </GridItem>
-      <Show above="md">
-        <GridItem
-          area="aside"
-          paddingX={5}
-        >
-          <GenresList />
-        </GridItem>
-      </Show>
-      <GridItem area="main">
-        <GamesHeading />
-        <Flex marginLeft={10}>
-          <Box marginRight={2}>
-            <PlatformSelector />
-          </Box>
-          <SortMenue />
-        </Flex>
-        <GamesGrid />
-      </GridItem>
+      <Outlet />
     </Grid>
   );
 }
