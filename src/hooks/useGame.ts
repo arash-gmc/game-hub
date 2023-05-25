@@ -1,12 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import ApiClient, { FetchResponse } from "../services/api-client";
 import timeMap from "../services/timeMap";
+import { Game } from "./useGames";
 
-interface GameDetails {
-  name: string;
-  description_raw: string;
-}
-const apiClient = new ApiClient<GameDetails>("/games");
+const apiClient = new ApiClient<Game>("/games");
 
 const useGame = (gameSlug: string) =>
   useQuery({

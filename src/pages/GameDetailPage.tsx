@@ -1,6 +1,7 @@
 import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
 import React from "react";
 import { useParams } from "react-router-dom";
+import TextExpanse from "../components/TextExpanse";
 import useGame from "../hooks/useGame";
 
 const GameDetailPage = () => {
@@ -11,7 +12,7 @@ const GameDetailPage = () => {
   return (
     <Box m={20}>
       <Heading>{game.name}</Heading>
-      <Text>{game.description_raw}</Text>
+      <TextExpanse>{game.description_raw}</TextExpanse>
     </Box>
   );
 };
