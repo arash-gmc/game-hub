@@ -3,6 +3,7 @@ import logo from "../assets/Logo/logo.webp";
 import React from "react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,10 +11,13 @@ const Navbar = () => {
       justify="space-between"
       padding="20px"
     >
-      <Image
-        src={logo}
-        boxSize="60px"
-      />
+      <Link to="/">
+        <Image
+          src={logo}
+          boxSize="60px"
+          objectFit="cover"
+        />
+      </Link>
       <SearchBar />
       <ColorModeSwitch />
     </HStack>

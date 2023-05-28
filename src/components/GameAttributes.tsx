@@ -6,7 +6,7 @@ import Score from "./Score";
 const GameAttributes = ({ game }: { game: Game }) => {
   return (
     <SimpleGrid
-      columns={{ sm: 2, lg: 4 }}
+      columns={2}
       as="dl"
     >
       <DefinationItems title="Platforms">

@@ -7,12 +7,13 @@ interface Props {
 
 const TextExpanse = ({ children }: Props) => {
   const [expaned, setExpaned] = useState(false);
+  const expanseLength = 400;
   if (!children) return null;
-  if (children.length < 300) return <Text>{children}</Text>;
+  if (children.length < expanseLength) return <Text>{children}</Text>;
 
   return (
     <Text>
-      {expaned ? children : children.substring(0, 300) + "..."}
+      {expaned ? children : children.substring(0, expanseLength) + "..."}
       <Button
         onClick={() => setExpaned(!expaned)}
         size="sm"
